@@ -15,17 +15,23 @@ public class HomeTasks {
 		home.getAccountButton().click();
 	}
 	
-	public void login(String login, String senha) {
+	public void login(String login, String senha){
 		home.getLoginTextField().sendKeys(login);
 		home.getSenhaTextField().sendKeys(senha);
 		home.getLogarButton().click();
+		
+	}
+
+	public void extrato() {
 		home.getBarraButton().click();
 		home.getExtratoButton().click();
 		home.getMesButton().click();
 		home.getConsultarButton().click();
+		
 	}
+	
+	public void logout(){
 
-	public void logout() {
 		home.getSairButton().click();
 	}
 }

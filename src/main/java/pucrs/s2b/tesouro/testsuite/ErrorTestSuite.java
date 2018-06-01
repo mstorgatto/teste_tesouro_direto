@@ -1,22 +1,23 @@
-package pucrs.s2b.tesouro.testsuites;
+package pucrs.s2b.tesouro.testsuite;
 
-import pucrs.s2b.tesouro.framework.Report;
-import pucrs.s2b.tesouro.testcase.LoginTestCase;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import pucrs.s2b.tesouro.framework.Report;
+import pucrs.s2b.tesouro.testcase.LoginErrorTestCase;
+
 @RunWith(Suite.class)
 @SuiteClasses({
-	LoginTestCase.class,
+	LoginErrorTestCase.class,
 })
-public class RegressionTestSuite {
+public class ErrorTestSuite {
 	
 	@BeforeClass
 	public static void initTest() {
-		Report.create("Tesouro Direto", "Suite de Regressao");
+		Report.create("Tesouro Direto", "Teste erro de Login");
 	}
 
 	@AfterClass

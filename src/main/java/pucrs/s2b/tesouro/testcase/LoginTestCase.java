@@ -17,7 +17,7 @@ public class LoginTestCase {
 	
 	private WebDriver driver;
 	
-	private HomeTasks homePage;
+	public HomeTasks homePage;
 	private LoginVerificationPoint verificationPoint;
 	
 	@Before
@@ -30,15 +30,20 @@ public class LoginTestCase {
 	}
 	
 	@Test
-	public void testMain() {
+	public void testMain() throws InterruptedException {
 		driver.get("https://tesourodireto.bmfbovespa.com.br/PortalInvestidor/login.aspx");
 		driver.manage().window().maximize();
 		
-		Report.log(Status.INFO, "The website was loaded.", ScreenShot.capture(driver));
+		Thread.sleep(2000);
+		Report.log(Status.INFO, "The website has started.", ScreenShot.capture(driver));
 		
-		homePage.login("02561004031", "livroroxo27#@");
+		homePage.login ("02561004031", "livroroxo27#@");
+		
+		Thread.sleep(3000);
 		
 		Report.log(Status.INFO, "Password and login data.", ScreenShot.capture(driver));
+
+		homePage.extrato ();
 		
 		verificationPoint.checkValidLoginMessage();
 	}	

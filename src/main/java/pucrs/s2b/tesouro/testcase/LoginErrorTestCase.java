@@ -10,52 +10,49 @@ import com.aventstack.extentreports.Status;
 import pucrs.s2b.tesouro.framework.Drivers;
 import pucrs.s2b.tesouro.framework.Report;
 import pucrs.s2b.tesouro.framework.ScreenShot;
-import pucrs.s2b.tesouro.tasks.AccountTasks;
 import pucrs.s2b.tesouro.tasks.HomeTasks;
 import pucrs.s2b.tesouro.verificationpoint.AccountVerificationPoint;
 
-public class WrongPasswordTestCase {
+public class LoginErrorTestCase {
 
 	private WebDriver driver;
 
-	private HomeTasks homePage;
-	private AccountTasks accountPage;
+	public HomeTasks homePage;
 	private AccountVerificationPoint verificationPoint;
 
 	@Before
 	public void setUp() {
-		Report.startTest("Register Fails");
+		Report.startTest("Login");
 		driver = Drivers.getChromeDriver();
 
 		homePage = new HomeTasks(driver);
-		accountPage = new AccountTasks(driver);
 		verificationPoint = new AccountVerificationPoint(driver);
 	}
 
 	@Test
-	public void testMain() {
+	public void testMain() throws InterruptedException {
 		driver.get("https://tesourodireto.bmfbovespa.com.br/PortalInvestidor/login.aspx");
 		driver.manage().window().maximize();
 
 		Report.log(Status.INFO, "The website has started.", ScreenShot.capture(driver));
 
-		homePage.accessRegistrationPage();
+		Thread.sleep(2000);
 
-		Report.log(Status.INFO, "Register Page loaded.", ScreenShot.capture(driver));
+		homePage.login("02561004122", "abcd1#@");
 
-		accountPage.fillForm("02561004032", "abc12@");
+		Thread.sleep(2000);
 		
-		Report.log(Status.INFO, "Filling in the Fields.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Incorrect password warning.", ScreenShot.capture(driver));
 		
-		accountPage.toLogar();
-		
-		Report.log(Status.INFO, "logged in", ScreenShot.capture(driver));
-				
-		verificationPoint.checkPasswordFieldErrorMessage();
+		verificationPoint.checkLoginFieldErrorMessage();
+
 	}
 
 	@After
-	public void tearDown() {
+	public void tearDown() throws InterruptedException {
+
+		Thread.sleep(2000);
+
 		driver.quit();
 	}
 }

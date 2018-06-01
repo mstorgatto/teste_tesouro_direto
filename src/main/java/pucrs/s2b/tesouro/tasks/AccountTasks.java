@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AccountTasks {
 	
-	private AccountAppObject appObjects;
+	public AccountAppObject appObjects;
 	
 	public AccountTasks(WebDriver driver){
 		this.appObjects = new AccountAppObject(driver);

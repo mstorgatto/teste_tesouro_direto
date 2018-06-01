@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * Classe para mapeamento dos objetos da página de página inicial.
+ * Classe para mapeamento dos objetos da página de página inicial para tirar extrato.
  */
 
 public class HomeAppObject {

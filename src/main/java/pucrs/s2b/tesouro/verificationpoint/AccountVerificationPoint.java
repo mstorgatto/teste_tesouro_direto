@@ -16,11 +16,13 @@ public class AccountVerificationPoint {
 		this.driver = driver;
 	}
 	
-	public void checkPasswordFieldErrorMessage() {
+	public void checkLoginFieldErrorMessage() {
 		if(this.pageContains(PASSWORD_ERROR_MESSAGE)) {
-			Report.log(Status.PASS, "A mensagem de erro foi exibida corretamente.", ScreenShot.capture(driver));
-		} else {
 			Report.log(Status.FAIL, "A mensagem de erro nao foi exibida conforme esperado.", ScreenShot.capture(driver));
+		}
+		
+		else {
+			Report.log(Status.PASS, "A mensagem de erro foi exibida corretamente.", ScreenShot.capture(driver));
 		}
 	}
 

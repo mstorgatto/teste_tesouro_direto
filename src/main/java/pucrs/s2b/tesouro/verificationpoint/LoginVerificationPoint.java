@@ -19,9 +19,11 @@ public class LoginVerificationPoint {
 
 	public void checkValidLoginMessage() {
 		if(this.pageContains(LOGIN_MESSAGE)) {
-			Report.log(Status.PASS, "Mensagem exibida corretamente.", ScreenShot.capture(driver));
-		} else {
 			Report.log(Status.FAIL, "Mensagem nao exibida conforme esperado.", ScreenShot.capture(driver));
+		} 
+		
+		else {
+			Report.log(Status.PASS, "Mensagem exibida corretamente..", ScreenShot.capture(driver));
 		}
 	}
 
