@@ -18,7 +18,7 @@ public class LoginTestSuite {
 	
 	@BeforeClass
 	public static void initTest() {
-		Report.create("Tesouro Direto", "Teste de Login");
+		Report.create("Tesouro Direto", "Testando login e senha válidos.");
 	}
 
 	@AfterClass

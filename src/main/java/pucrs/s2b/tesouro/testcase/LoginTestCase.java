@@ -22,7 +22,7 @@ public class LoginTestCase {
 	
 	@Before
 	public void setUp() {
-		Report.startTest("Login");
+		Report.startTest("Login and password are valid.");
 		driver = Drivers.getChromeDriver();
 		
 		homePage = new HomeTasks(driver);
@@ -34,14 +34,14 @@ public class LoginTestCase {
 		driver.get("https://tesourodireto.bmfbovespa.com.br/PortalInvestidor/login.aspx");
 		driver.manage().window().maximize();
 		
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Report.log(Status.INFO, "The website has started.", ScreenShot.capture(driver));
 		
 		homePage.login ("02561004031", "livroroxo27#@");
 		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
-		Report.log(Status.INFO, "Password and login data.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Login done successfully.", ScreenShot.capture(driver));
 
 		homePage.extrato ();
 		

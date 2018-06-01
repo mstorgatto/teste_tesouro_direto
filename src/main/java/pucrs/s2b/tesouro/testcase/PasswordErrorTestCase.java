@@ -13,7 +13,7 @@ import pucrs.s2b.tesouro.framework.ScreenShot;
 import pucrs.s2b.tesouro.tasks.HomeTasks;
 import pucrs.s2b.tesouro.verificationpoint.AccountVerificationPoint;
 
-public class LoginErrorTestCase {
+public class PasswordErrorTestCase {
 
 	private WebDriver driver;
 
@@ -22,7 +22,7 @@ public class LoginErrorTestCase {
 
 	@Before
 	public void setUp() {
-		Report.startTest("Invalid login.");
+		Report.startTest("Invalid password.");
 		driver = Drivers.getChromeDriver();
 
 		homePage = new HomeTasks(driver);
@@ -38,11 +38,11 @@ public class LoginErrorTestCase {
 
 		Thread.sleep(2000);
 
-		homePage.login("02561004122", "livroroxo27#@");
+		homePage.login("02561004031", "abc123@");
 
 		Thread.sleep(2000);
 		
-		Report.log(Status.INFO, "Incorrect login warning.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Incorrect password warning.", ScreenShot.capture(driver));
 		
 		verificationPoint.checkLoginFieldErrorMessage();
 

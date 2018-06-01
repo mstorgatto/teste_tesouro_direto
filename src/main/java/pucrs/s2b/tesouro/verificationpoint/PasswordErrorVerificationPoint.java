@@ -1,23 +1,24 @@
 package pucrs.s2b.tesouro.verificationpoint;
 
-import pucrs.s2b.tesouro.framework.Report;
-import pucrs.s2b.tesouro.framework.ScreenShot;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.Status;
 
-public class AccountVerificationPoint {
+import pucrs.s2b.tesouro.framework.Report;
+import pucrs.s2b.tesouro.framework.ScreenShot;
+
+public class PasswordErrorVerificationPoint {
 	
-	private static final String LOGIN_ERROR_MESSAGE = "The login you entered is incorrect.";
+	private static final String PASSWORD_ERROR_MESSAGE = "The password you entered is incorrect.";
 	
 	private WebDriver driver;
 	
-	public AccountVerificationPoint(WebDriver driver) {
+	public PasswordErrorVerificationPoint(WebDriver driver) {
 		this.driver = driver;
 	}
 	
 	public void checkLoginFieldErrorMessage() {
-		if(this.pageContains(LOGIN_ERROR_MESSAGE)) {
+		if(this.pageContains(PASSWORD_ERROR_MESSAGE)) {
 			Report.log(Status.FAIL, "The error message did not display as expected.", ScreenShot.capture(driver));
 		}
 		

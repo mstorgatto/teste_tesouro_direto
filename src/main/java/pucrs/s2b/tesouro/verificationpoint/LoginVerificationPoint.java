@@ -9,7 +9,7 @@ import pucrs.s2b.tesouro.framework.ScreenShot;
 
 public class LoginVerificationPoint {
 
-	private static final String LOGIN_MESSAGE = "Login Performed Successful.";
+	private static final String LOGIN_MESSAGE = "Login and Password performed successful.";
 
 	private WebDriver driver;
 
@@ -19,11 +19,11 @@ public class LoginVerificationPoint {
 
 	public void checkValidLoginMessage() {
 		if(this.pageContains(LOGIN_MESSAGE)) {
-			Report.log(Status.FAIL, "Mensagem nao exibida conforme esperado.", ScreenShot.capture(driver));
+			Report.log(Status.FAIL, "Message not displayed as expected. Error in executing the function.", ScreenShot.capture(driver));
 		} 
 		
 		else {
-			Report.log(Status.PASS, "Mensagem exibida corretamente..", ScreenShot.capture(driver));
+			Report.log(Status.PASS, "Message displayed correctly. Functionality executed successfully.", ScreenShot.capture(driver));
 		}
 	}
 

@@ -7,17 +7,18 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import pucrs.s2b.tesouro.framework.Report;
-import pucrs.s2b.tesouro.testcase.LoginErrorTestCase;
+import pucrs.s2b.tesouro.testcase.PasswordErrorTestCase;
+
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	LoginErrorTestCase.class,
+	PasswordErrorTestCase.class,
 })
-public class ErrorTestSuite {
+public class PasswordErrorTestSuite {
 	
 	@BeforeClass
 	public static void initTest() {
-		Report.create("Tesouro Direto", "Teste Login inválido, senha válida.");
+		Report.create("Tesouro Direto", "Teste login válido, senha inválida.");
 	}
 
 	@AfterClass
@@ -26,3 +27,4 @@ public class ErrorTestSuite {
 	}
 
 }
+
