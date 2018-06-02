@@ -9,12 +9,12 @@ Foram utilizados os seguintes conceitos:
 * TestSuites
 * Reports
 
-###Ferramentas:
+### Ferramentas:
 * Eclipse IDE - eclipse.org
 * Maven - maven.apache.org
 * JDK 8 - oracle.com
 
-###Bibliotecas externas
+### Bibliotecas externas
 Dependências obtidas através do gerenciador de dependências do Maven.
 
 * Selenium WebDriver - seleniumhq.org
