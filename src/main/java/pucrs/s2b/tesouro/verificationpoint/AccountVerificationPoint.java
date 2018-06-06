@@ -18,11 +18,11 @@ public class AccountVerificationPoint {
 	
 	public void checkLoginFieldErrorMessage() {
 		if(this.pageContains(LOGIN_ERROR_MESSAGE)) {
-			Report.log(Status.FAIL, "The error message did not display as expected.", ScreenShot.capture(driver));
+			Report.log(Status.FAIL, "Mensagem de login invalido não foi exibida corretamente.", ScreenShot.capture(driver));
 		}
 		
 		else {
-			Report.log(Status.PASS, "The error message was displayed correctly.", ScreenShot.capture(driver));
+			Report.log(Status.PASS, "Mensagem de login invalido foi exibida corretamente.", ScreenShot.capture(driver));
 		}
 	}
 

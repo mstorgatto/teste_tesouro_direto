@@ -10,25 +10,25 @@ import com.aventstack.extentreports.Status;
 import pucrs.s2b.tesouro.framework.Drivers;
 import pucrs.s2b.tesouro.framework.Report;
 import pucrs.s2b.tesouro.framework.ScreenShot;
-import pucrs.s2b.tesouro.tasks.HomeTasks;
-import pucrs.s2b.tesouro.verificationpoint.AccountVerificationPoint;
+import pucrs.s2b.tesouro.tasks.InvestTasks;
+import pucrs.s2b.tesouro.verificationpoint.InvestVerificationPoint;
 
-public class LoginErrorTestCase {
-
+public class InvestTestCase {
+	
 	private WebDriver driver;
-
-	public HomeTasks homePage;
-	private AccountVerificationPoint verificationPoint;
-
+	
+	public InvestTasks homePage;
+	private InvestVerificationPoint verificationPoint;
+	
 	@Before
 	public void setUp() {
-		Report.startTest("Invalid login.");
+		Report.startTest("Option to invest are valid.");
 		driver = Drivers.getChromeDriver();
-
-		homePage = new HomeTasks(driver);
-		verificationPoint = new AccountVerificationPoint(driver);
+		
+		homePage = new InvestTasks(driver);
+		verificationPoint = new InvestVerificationPoint(driver);
 	}
-
+	
 	@Test
 	public void testMain() throws InterruptedException {
 		driver.get("https://tesourodireto.bmfbovespa.com.br/PortalInvestidor/login.aspx");
@@ -36,23 +36,20 @@ public class LoginErrorTestCase {
 
 		Report.log(Status.INFO, "O site iniciou.", ScreenShot.capture(driver));
 
-		Thread.sleep(2000);
-
-		homePage.login("02561004122", "livroroxo27#@");
+		homePage.login("02561004031", "livroroxo27#@");
+		
+		homePage.invest();
+		
+		Report.log(Status.INFO, "Selecionando opcao investir.", ScreenShot.capture(driver));
 
 		Thread.sleep(2000);
 		
-		Report.log(Status.INFO, "Aviso de Login incorreto.", ScreenShot.capture(driver));
-		
-		verificationPoint.checkLoginFieldErrorMessage();
+		verificationPoint.checkValidInvestMessage();
 
 	}
 
 	@After
-	public void tearDown() throws InterruptedException {
-
-		Thread.sleep(2000);
-
+	public void tearDown() {
 		driver.quit();
 	}
 }

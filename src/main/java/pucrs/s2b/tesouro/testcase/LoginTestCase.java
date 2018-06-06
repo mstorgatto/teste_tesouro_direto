@@ -35,15 +35,19 @@ public class LoginTestCase {
 		driver.manage().window().maximize();
 		
 		Thread.sleep(1000);
-		Report.log(Status.INFO, "The website has started.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "O site iniciou.", ScreenShot.capture(driver));
 		
 		homePage.login ("02561004031", "livroroxo27#@");
 		
 		Thread.sleep(2000);
 		
-		Report.log(Status.INFO, "Login done successfully.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Login efetuado com sucesso.", ScreenShot.capture(driver));
 
-		homePage.extrato ();
+		homePage.extrato();
+		
+		Report.log(Status.INFO, "Consultando extrato consolidado do mes de Abril de 2018.", ScreenShot.capture(driver));
+		
+		homePage.logout();
 		
 		verificationPoint.checkValidLoginMessage();
 	}	

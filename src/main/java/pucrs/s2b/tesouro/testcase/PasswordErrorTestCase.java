@@ -11,14 +11,14 @@ import pucrs.s2b.tesouro.framework.Drivers;
 import pucrs.s2b.tesouro.framework.Report;
 import pucrs.s2b.tesouro.framework.ScreenShot;
 import pucrs.s2b.tesouro.tasks.HomeTasks;
-import pucrs.s2b.tesouro.verificationpoint.AccountVerificationPoint;
+import pucrs.s2b.tesouro.verificationpoint.PasswordErrorVerificationPoint;
 
 public class PasswordErrorTestCase {
 
 	private WebDriver driver;
 
 	public HomeTasks homePage;
-	private AccountVerificationPoint verificationPoint;
+	private PasswordErrorVerificationPoint verificationPoint;
 
 	@Before
 	public void setUp() {
@@ -26,7 +26,7 @@ public class PasswordErrorTestCase {
 		driver = Drivers.getChromeDriver();
 
 		homePage = new HomeTasks(driver);
-		verificationPoint = new AccountVerificationPoint(driver);
+		verificationPoint = new PasswordErrorVerificationPoint(driver);
 	}
 
 	@Test
@@ -34,15 +34,15 @@ public class PasswordErrorTestCase {
 		driver.get("https://tesourodireto.bmfbovespa.com.br/PortalInvestidor/login.aspx");
 		driver.manage().window().maximize();
 
-		Report.log(Status.INFO, "The website has started.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "O site foi iniciado.", ScreenShot.capture(driver));
 
 		Thread.sleep(2000);
 
-		homePage.login("02561004031", "abc123@");
+		homePage.login("02561004011", "abc123@");
 
 		Thread.sleep(2000);
 		
-		Report.log(Status.INFO, "Incorrect password warning.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Aviso de senha incorreta.", ScreenShot.capture(driver));
 		
 		verificationPoint.checkLoginFieldErrorMessage();
 

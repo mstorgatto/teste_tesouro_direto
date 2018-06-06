@@ -10,10 +10,6 @@ public class HomeTasks {
 	public HomeTasks(WebDriver driver) {
 		this.home = new HomeAppObject(driver);
 	}
-
-	public void accessRegistrationPage(){
-		home.getAccountButton().click();
-	}
 	
 	public void login(String login, String senha){
 		home.getLoginTextField().sendKeys(login);

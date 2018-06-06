@@ -7,18 +7,18 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import pucrs.s2b.tesouro.framework.Report;
-import pucrs.s2b.tesouro.testcase.LoginTestCase;
+import pucrs.s2b.tesouro.testcase.InvestTestCase;
 
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	LoginTestCase.class,
+	InvestTestCase.class,
 })
-public class LoginTestSuite {
+public class InvestTestSuite {
 	
 	@BeforeClass
 	public static void initTest() {
-		Report.create("Tesouro Direto", "Suite de teste de login e senha válidos para consultar extrato.");
+		Report.create("Tesouro Direto", "Efetuando login e selecionando opcao investir.");
 	}
 
 	@AfterClass

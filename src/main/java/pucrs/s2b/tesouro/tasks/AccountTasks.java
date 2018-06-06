@@ -15,10 +15,10 @@ public class AccountTasks {
 	public void fillForm(String login, String senha){
 		appObjects.getLoginTextField().sendKeys(login);
 		appObjects.getSenhaTextField().sendKeys(senha);
-	
+		appObjects.getLogarButton().click();
 	}
 	
 	public void toLogar(){
-		appObjects.getLogarButton().click();
+		
 	}
 }
