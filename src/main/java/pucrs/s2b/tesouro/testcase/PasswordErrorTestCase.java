@@ -10,14 +10,15 @@ import com.aventstack.extentreports.Status;
 import pucrs.s2b.tesouro.framework.Drivers;
 import pucrs.s2b.tesouro.framework.Report;
 import pucrs.s2b.tesouro.framework.ScreenShot;
-import pucrs.s2b.tesouro.tasks.HomeTasks;
+import pucrs.s2b.tesouro.tasks.ExtratoTasks;
+import pucrs.s2b.tesouro.tasks.LoginTasks;
 import pucrs.s2b.tesouro.verificationpoint.PasswordErrorVerificationPoint;
 
 public class PasswordErrorTestCase {
 
 	private WebDriver driver;
 
-	public HomeTasks homePage;
+	public ExtratoTasks homePage;
 	private PasswordErrorVerificationPoint verificationPoint;
 
 	@Before
@@ -25,7 +26,7 @@ public class PasswordErrorTestCase {
 		Report.startTest("Invalid password.");
 		driver = Drivers.getChromeDriver();
 
-		homePage = new HomeTasks(driver);
+		homePage = new ExtratoTasks(driver);		
 		verificationPoint = new PasswordErrorVerificationPoint(driver);
 	}
 
@@ -38,14 +39,13 @@ public class PasswordErrorTestCase {
 
 		Thread.sleep(2000);
 
-		homePage.login("02561004011", "abc123@");
+		homePage.login("02561004031", "abc123@");
 
 		Thread.sleep(2000);
 		
 		Report.log(Status.INFO, "Aviso de senha incorreta.", ScreenShot.capture(driver));
 		
 		verificationPoint.checkLoginFieldErrorMessage();
-
 	}
 
 	@After

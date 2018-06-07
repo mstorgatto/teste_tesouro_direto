@@ -10,7 +10,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class Report {
-	private static final String DEFAULT_DESCRIPTION = "PUCRS TEST SUITE";
+	private static final String DEFAULT_DESCRIPTION = "PUCRS S2B AUTOMACAO DE TESTES";
 	private static final String DEFAULT_PATH = "./reports/report_%s.html";
 	private static ExtentReports extentReport;
 	private static ExtentTest logger;

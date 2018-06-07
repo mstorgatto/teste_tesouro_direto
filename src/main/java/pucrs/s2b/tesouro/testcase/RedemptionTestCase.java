@@ -43,23 +43,23 @@ public class RedemptionTestCase {
 
 		homePage.rescue();
 
-		Report.log(Status.INFO, "Testando opção de Agendamento de Resgate!", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Testando opcao de Agendamento de Resgate!", ScreenShot.capture(driver));
 
 		homePage.instituicao();
 
-		Report.log(Status.INFO, "Escolhendo a Instituição Financeira.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Escolhendo a Instituicao Financeira.", ScreenShot.capture(driver));
 
 		homePage.cancelar();
 
-		Report.log(Status.INFO, "Dado erro ao selecionar Insituição Financeira, tentando cancelar operação.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Dado erro ao selecionar Insituicao Financeira, tentando cancelar operacao.", ScreenShot.capture(driver));
 
 		homePage.cancela();
 		
-		Report.log(Status.INFO, "Botão Cancelar não funciona.", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Botao Cancelar nao funciona.", ScreenShot.capture(driver));
 
 		homePage.inicio();
 
-		Report.log(Status.INFO, "Encerrando sessão..", ScreenShot.capture(driver));
+		Report.log(Status.INFO, "Encerrando sessao.", ScreenShot.capture(driver));
 
 		homePage.logout();
 

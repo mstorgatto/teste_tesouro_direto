@@ -11,48 +11,49 @@ import pucrs.s2b.tesouro.framework.Drivers;
 import pucrs.s2b.tesouro.framework.Report;
 import pucrs.s2b.tesouro.framework.ScreenShot;
 import pucrs.s2b.tesouro.tasks.ExtratoTasks;
-import pucrs.s2b.tesouro.verificationpoint.LoginErrorVerificationPoint;
+import pucrs.s2b.tesouro.verificationpoint.ExtratoVerificationPoint;
 
-public class LoginErrorTestCase {
 
+public class ExtratoTestCase {
+	
 	private WebDriver driver;
-
+	
 	public ExtratoTasks homePage;
-	private LoginErrorVerificationPoint verificationPoint;
-
+	private ExtratoVerificationPoint verificationPoint;
+	
 	@Before
 	public void setUp() {
-		Report.startTest("Invalid login.");
+		Report.startTest("Logging in to get an extract.");
 		driver = Drivers.getChromeDriver();
-
+		
 		homePage = new ExtratoTasks(driver);
-		verificationPoint = new LoginErrorVerificationPoint(driver);
+		verificationPoint = new ExtratoVerificationPoint(driver);
 	}
-
+	
 	@Test
 	public void testMain() throws InterruptedException {
 		driver.get("https://tesourodireto.bmfbovespa.com.br/PortalInvestidor/login.aspx");
 		driver.manage().window().maximize();
-
+		
+		Thread.sleep(1000);
 		Report.log(Status.INFO, "O site iniciou.", ScreenShot.capture(driver));
-
-		Thread.sleep(2000);
-
-		homePage.login("02561004122", "livroroxo27#@");
-
+		
+		homePage.login("02561004031", "livroroxo27#@");
+		
 		Thread.sleep(2000);
 		
-		Report.log(Status.INFO, "Aviso de Login incorreto.", ScreenShot.capture(driver));
-		
-		verificationPoint.checkLoginFieldErrorMessage();
+		Report.log(Status.INFO, "Login efetuado com sucesso.", ScreenShot.capture(driver));
 
-	}
+		homePage.extrato();
+		Report.log(Status.INFO, "Consultando extrato consolidado do mes de Abril de 2018.", ScreenShot.capture(driver));
+		
+		homePage.logout();
+		
+		verificationPoint.checkValidLoginMessage();
+	}	
 
 	@After
-	public void tearDown() throws InterruptedException {
-
-		Thread.sleep(2000);
-
-		driver.quit();
+	public void tearDown() {
+	driver.quit();
 	}
 }

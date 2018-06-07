@@ -9,7 +9,7 @@ import pucrs.s2b.tesouro.framework.ScreenShot;
 
 public class RedemptionVerificationPoint {
 	
-	private static final String REDEMPTION_MESSAGE = "Operação cancelada.";
+	private static final String REDEMPTION_MESSAGE = "Operacao de resgate cancelada.";
 	
 	private WebDriver driver;
 	
@@ -22,7 +22,7 @@ public class RedemptionVerificationPoint {
 			Report.log(Status.PASS, "A mensagem de erro foi exibida corretamente.", ScreenShot.capture(driver));
 		}		
 		else {
-			Report.log(Status.FAIL, "A mensagem de erro não foi exibida corretamente.", ScreenShot.capture(driver));
+			Report.log(Status.FAIL, "Botao de Cancelar nao funcionou corretamente.", ScreenShot.capture(driver));
 		}
 	}
 

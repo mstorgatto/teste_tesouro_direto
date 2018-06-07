@@ -19,7 +19,7 @@ public class InvestVerificationPoint {
 
 	public void checkValidInvestMessage() {
 		if(this.pageContains(INVEST_MESSAGE)) {
-			Report.log(Status.FAIL, "Mensagem de erro não foi exibida.", ScreenShot.capture(driver));
+			Report.log(Status.FAIL, "Mensagem de erro nao foi exibida.", ScreenShot.capture(driver));
 		} 
 		
 		else {

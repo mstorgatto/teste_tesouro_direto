@@ -18,7 +18,7 @@ public class InvestTestSuite {
 	
 	@BeforeClass
 	public static void initTest() {
-		Report.create("Tesouro Direto", "Efetuando login e selecionando opcao investir.");
+		Report.create("Tesouro Direto", "Suite de teste botao investir.");
 	}
 
 	@AfterClass

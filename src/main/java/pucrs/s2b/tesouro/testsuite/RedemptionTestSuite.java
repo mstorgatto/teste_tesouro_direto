@@ -18,7 +18,7 @@ public class RedemptionTestSuite {
 	
 	@BeforeClass
 	public static void initTest() {
-		Report.create("Tesouro Direto", "Testando opção resgate de investimentos.");
+		Report.create("Tesouro Direto", "Suite de teste do botão Resgatar.");
 	}
 
 	@AfterClass
