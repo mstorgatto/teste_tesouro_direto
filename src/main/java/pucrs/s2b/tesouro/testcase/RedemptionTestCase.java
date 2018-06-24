@@ -37,7 +37,7 @@ public class RedemptionTestCase {
 		Thread.sleep(1000);
 		Report.log(Status.INFO, "O site foi iniciado.", ScreenShot.capture(driver));
 
-		homePage.login("02561004031", "livroroxo27#@");
+		homePage.login("***********", "livroroxo27#@");
 
 		Report.log(Status.INFO, "Login feito com sucesso.", ScreenShot.capture(driver));
 

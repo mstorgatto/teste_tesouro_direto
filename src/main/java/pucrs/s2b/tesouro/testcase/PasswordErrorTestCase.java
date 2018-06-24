@@ -39,7 +39,7 @@ public class PasswordErrorTestCase {
 
 		Thread.sleep(2000);
 
-		homePage.login("02561004031", "abc123@");
+		homePage.login("***********", "abc123@");
 
 		Thread.sleep(2000);
 		

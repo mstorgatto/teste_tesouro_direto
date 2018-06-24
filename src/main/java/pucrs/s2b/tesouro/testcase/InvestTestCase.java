@@ -36,7 +36,7 @@ public class InvestTestCase {
 
 		Report.log(Status.INFO, "O site iniciou.", ScreenShot.capture(driver));
 
-		homePage.login("02561004031", "livroroxo27#@");
+		homePage.login("************", "***********");
 		
 		homePage.invest();
 		

@@ -38,7 +38,7 @@ public class LoginErrorTestCase {
 
 		Thread.sleep(2000);
 
-		homePage.login("02561004122", "livroroxo27#@");
+		homePage.login("*********", "livroroxo27#@");
 
 		Thread.sleep(2000);
 		

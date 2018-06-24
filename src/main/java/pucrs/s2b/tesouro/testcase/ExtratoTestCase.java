@@ -38,7 +38,7 @@ public class ExtratoTestCase {
 		Thread.sleep(1000);
 		Report.log(Status.INFO, "O site iniciou.", ScreenShot.capture(driver));
 		
-		homePage.login("02561004031", "livroroxo27#@");
+		homePage.login("************", "************");
 		
 		Thread.sleep(2000);
 		
